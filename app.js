@@ -106,7 +106,8 @@ app.get("/demouser", async (req,res)=>{
 // root route 
 
 app.all(/.*/,(req,res,next) => {
-    next(new ExpressError(404,"Page Not Found!"));
+    // next(new ExpressError(404,"Page Not Found!"));
+    res.redirect("/listings");
 });
 
 app.use((err, req, res, next) => {

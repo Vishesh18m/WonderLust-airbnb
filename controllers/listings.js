@@ -31,18 +31,25 @@ module.exports.createListing = async (req, res, next) => {
     newList.owner = req.user._id;
     newList.image = {url,filename};
 
-    const location = req.body.listing.location;
-    const response = await fetch(
-        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`
-    );
-    const coordinates = await response.json();
-    const latitude = coordinates[0].lat ;
-    const longitude = coordinates[0].lon ;
+    // const location = req.body.listing.location;
+    // const response = await fetch(
+    //     `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`,
+    
+    //     {
+    //         headers: {
+    //         "User-Agent": "your-app-name (your-email@example.com)"
+    //         }
+    //     }
+    // );
 
-    newList.geometry = {
-    type: "Point",
-    coordinates: [longitude, latitude]   // ⚠️ GeoJSON = [longitude, latitude]
-    };
+    // const coordinates = await response.json();
+    // const latitude = coordinates[0].lat ;
+    // const longitude = coordinates[0].lon ;
+
+    // newList.geometry = {
+    // type: "Point",
+    // coordinates: [longitude, latitude]   // ⚠️ GeoJSON = [longitude, latitude]
+    // };
     
     // Save listing
     await newList.save();

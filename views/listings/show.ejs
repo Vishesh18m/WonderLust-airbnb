@@ -85,10 +85,15 @@
                     <% for(review of listing.reviews) { %>
                         <div class="card col-2 mb-2 review-card">
                             <div class="card-body ">
-                                <h5 class="card-title"><%= review.author.username %></h5>
-                                <p class="starability-result" data-rating="<%= review.rating %>">
-                                    Rated: 3 stars
-                                </p>
+                                <div class="review-author-profile">
+                                    <div class="profile-pic"><%= review.author.username[0] %></div>
+                                    <div class="username-star-container">
+                                        <p class="card-title review-card-title">@<%= review.author.username %></p>
+                                        <p class="starability-result" data-rating="<%= review.rating %>"></p>
+                                    </div>
+                                    
+                                </div>
+                                
                                 <p class="card-text">
                                     <%= review.comment %>
                                 </p>
@@ -108,17 +113,9 @@
                 <div 
                     id="map"
                     data-location="<%= listing.location %>"
-                    data-lat="<%= listing.geometry.coordinates[1] %>"
-                    data-lon="<%= listing.geometry.coordinates[0] %>"></div>
+                > 
                 </div>
-
-                <!-- <div 
-                    id="map"
-                    data-lat="<%= listing.geometry.coordinates[1] %>"
-                    data-lon="<%= listing.geometry.coordinates[0] %>">></div>
-                </div> -->
-
-
+                </div>
         </div>
         <script src="/js/map.js"></script>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

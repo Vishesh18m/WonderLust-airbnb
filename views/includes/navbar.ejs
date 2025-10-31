@@ -1,13 +1,11 @@
 <nav class="navbar border-bottom navbar-expand-md bg-body-light sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><i class="fa-regular fa-compass"></i></a>
+    <a class="nav-link" href="/listings">Explore</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav"> 
-          <a class="nav-link" href="/listings">Explore</a>
-      </div>
 
       <div class="navbar-nav ms-auto">
         <form class="d-flex" role="search">
@@ -16,19 +14,30 @@
         </form>
       </div>
       
-
-
       <div class="navbar-nav ms-auto"> 
         <% if(!currUser) {%>
-          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+          <a class="nav-link add-new-bnb" href="/listings/new">Airbnb your home</a>
           <a class="nav-link " aria-current="page" href="/signup"><b>Sign up</b></a>
           <a class="nav-link" href="/login"><b>Log in</b></a>
         <% } %> 
 
         <% if(currUser) {%>
+          <a class="nav-link add-new-bnb" href="/listings/new">Airbnb your home</a>
           <a class="nav-link" href="/logout"><b>Log out</b></a>
         <% } %> 
       </div>
     </div>
   </div>
 </nav>
+
+<div class="nav-options"> 
+  <a class="nav-link option" aria-current="page" href="/signup">Signup</a>
+  <a class="nav-link option login-option" href="/login">Login</a>
+  <div class="nav-divider-line"></div>
+  <div class="navbar-nav option search-option">
+      <form class="d-flex" role="search">
+        <input class="form-control me-2 search-input" type="search" placeholder="Search destinations" aria-label="Search"/>
+        <button class="btn btn-search" type="submit">Search</button>
+      </form>
+  </div>
+</div>
