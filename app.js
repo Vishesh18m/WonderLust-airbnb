@@ -93,6 +93,7 @@ app.use("/",userRouter);
 
 // root route 
 app.all(/.*/,(req,res,next) => {
+    res.redirect("/listings");
     next(new ExpressError(404,"Page Not Found!"));
 });
 
